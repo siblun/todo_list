@@ -1,8 +1,14 @@
-This repository represents a todo list, created by Django.<br>
-The application assumes the user registration option. Further development will focus on the design of the app.<br>
-Possibilities:
-<ul>
-  <li>adding and removing tasks</li>
-  <li>assign a task to a specific title</li>
-  <li>set the time during which the task must be completed</li>
-</ul>
+<h1>To Do App</h1>
+<h3>Description</h3>
+<p>
+  This repository represents a to do app that allows you to keep track of your daily activities.
+</p>
+<h3>App launch</h3>
+<p>
+  When installing, carefully read the list of external dependencies provided in the <i>requirements.txt</i>
+  <ul>
+    <li>Copy this repository</li>
+    <li>Install external dependencies in your virtual environment</li>
+    <li>To run the server you need to enter the command "python manage.py runserver" in the terminal</li>
+  </ul>
+</p>
