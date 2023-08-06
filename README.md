@@ -5,7 +5,7 @@
 </p>
 <h3>App launch</h3>
 <p>
-  When installing, carefully read the list of external dependencies provided in the <i>requirements.txt</i>
+  When installing, carefully read the list of external dependencies provided in the <i>requirements.txt</i>. When developing the application, Python 3.11.0 was used.
   <ul>
     <li>Copy this repository</li>
     <li>Install external dependencies in your virtual environment. You can do it using pip command <code>python -m pip install -r requirements.txt</code> (or <code>pip install -r requirements.txt</code> )
