@@ -5,7 +5,7 @@ from django.urls import reverse
 
 def one_week_hence():
     """
-    returns the time by which the task must be completed
+    Returns the time by which the task must be completed.
     """
 
     return timezone.now() + timezone.timedelta(days=7)
@@ -13,7 +13,7 @@ def one_week_hence():
 
 class ToDoList(models.Model):
     """
-    This class is used to add a title of task
+    This class is used to add a title of task.
 
     Attributes
     ----------
@@ -42,7 +42,7 @@ class ToDoList(models.Model):
 
 class ToDoItem(models.Model):
     """
-    This class is used to add a task
+    This class is used to add a task.
 
     Attributes
     ----------
@@ -82,7 +82,7 @@ class ToDoItem(models.Model):
 
     class Meta:
         """
-        This class used to set a default ordering for ToDoItem records
+        This class used to set a default ordering for ToDoItem records.
         """
 
         ordering = ['due_date']
