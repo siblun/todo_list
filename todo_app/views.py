@@ -1,5 +1,5 @@
-from django.urls import reverse
-from django.views.generic import CreateView, UpdateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import ToDoList, ToDoItem
 
 
@@ -136,3 +136,51 @@ class ItemUpdate(UpdateView):
         """
 
         return reverse('list', args=[self.object.todo_list_id])
+
+
+class ListDelete(DeleteView):
+    """
+    This class is used to delete to-do lists.
+
+    Attributes
+    ----------
+    model : ToDoList
+        model of ToDoList
+    success_url
+        returns url as url attribute of generic view based on class
+    """
+
+    model = ToDoList
+    success_url = reverse_lazy('index')
+
+
+class ItemDelete(DeleteView):
+    """
+    This class is used to delete items.
+
+    Attributes
+    ----------
+    model : ToDoList
+        model of ToDoList
+
+    Methods
+    ----------
+    get_success_url()
+        provides the view with a page to display after the item has been deleted
+    get_context_data()
+
+    """
+
+    model = ToDoItem
+
+    def get_success_url(self):
+        """
+        This function calls the list view after a successful form submit to display the full to-do list.
+        """
+        return reverse_lazy('list', args=[self.kwargs['list_id']])
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context['todo_list'] = self.object.todo_list
+        return context
