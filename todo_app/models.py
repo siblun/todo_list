@@ -30,8 +30,7 @@ class ToDoList(models.Model):
 
     def get_absolute_url(self):
         """
-        This function returns the URL for the particular data item.
-        The return statement uses reverse() to avoid hard-coding the URL and its parameters.
+        This function generates references to objects that are created and modified in the database.
         """
 
         return reverse('list', args=[self.id])
@@ -71,8 +70,7 @@ class ToDoItem(models.Model):
 
     def get_absolute_url(self):
         """
-        This function returns the URL for the particular data item.
-        The return statement uses reverse() to avoid hard-coding the URL and its parameters.
+        This function generates references to objects that are created and modified in the database.
         """
 
         return reverse('item-update', args=[str(self.todo_list.id), str(self.id)])
