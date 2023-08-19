@@ -3,14 +3,6 @@ from django.utils import timezone
 from django.urls import reverse
 
 
-def _one_week_hence():
-    """
-    Returns the time by which the task must be completed.
-    """
-
-    return timezone.now() + timezone.timedelta(days=7)
-
-
 class ToDoList(models.Model):
     """
     This class is used to add a title of task.
@@ -62,10 +54,18 @@ class ToDoItem(models.Model):
         returns the URL for the particular data item
     """
 
+    @staticmethod
+    def __one_week_hence():
+        """
+        Returns the time by which the task must be completed.
+        """
+
+        return timezone.now() + timezone.timedelta(days=7)
+
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    due_date = models.DateTimeField(default=_one_week_hence)
+    due_date = models.DateTimeField(default=__one_week_hence)
     todo_list = models.ForeignKey(ToDoList, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
