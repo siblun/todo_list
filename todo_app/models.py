@@ -62,10 +62,13 @@ class ToDoItem(models.Model):
 
         return timezone.now() + timezone.timedelta(days=7)
 
+    def access_private_func(self):
+        self.__one_week_hence()
+
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    due_date = models.DateTimeField(default=__one_week_hence)
+    due_date = models.DateTimeField(default=access_private_func)
     todo_list = models.ForeignKey(ToDoList, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

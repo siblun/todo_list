@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=100)),
                 ('description', models.TextField(blank=True, null=True)),
                 ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('due_date', models.DateTimeField(default=todo_app.models._one_week_hence)),
+                ('due_date', models.DateTimeField(default=todo_app.models.ToDoItem.access_private_func)),
                 ('todo_list', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='todo_app.todolist')),
             ],
             options={
